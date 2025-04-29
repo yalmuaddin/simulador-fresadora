@@ -24,13 +24,13 @@
             <div class="form-group">
                 <label for="financiacion">Plazo de financiación:</label>
                 <select id="financiacion">
-					<option value="0.0446">24 meses </option>
-					<option value="0.0318">36 meses </option>
-					<option value="0.0246">48 meses </option>
-					<option value="0.0204">60 meses </option>
-					<option value="0.0177">72 meses </option>
-					<option value="0.0124">84 meses </option>
-				</select>
+                    <option value="24">24 meses</option>
+                    <option value="36">36 meses</option>
+                    <option value="48">48 meses</option>
+                    <option value="60">60 meses</option>
+                    <option value="72">72 meses</option>
+                    <option value="84">84 meses</option>
+                </select>
             </div>
         </div>
 
@@ -58,13 +58,12 @@
             <div class="result-box">
                 <h3>Ahorro Mensual Estimado:</h3>
                 <div id="ahorro-mensual" class="result-value positive">+0 €/mes</div>
+            </div>
             
-			</div>
-			<div class="result-box-cuota"> <!-- Usa la clase personalizada -->
-				<h3>Cuota mensual de financiación:</h3>
-				<div id="cuota-mensual" class="result-value">0 €/mes</div>
-			</div>
-			
+            <div class="result-box-cuota">
+                <h3>Cuota mensual de financiación:</h3>
+                <div id="cuota-mensual" class="result-value">0 €/mes</div>
+            </div>
 
             <div class="cost-details">
                 <h3>Detalle de Costes Internos Mensuales:</h3>
@@ -105,7 +104,7 @@
 
             <div id="roi-section" class="roi-section">
                 <h3>Retorno de la Inversión (ROI):</h3>
-                <p id="roi-text">Con un ahorro mensual de X €, recuperará su inversión en aproximadamente Y meses (Z años).</p>
+                <p id="roi-text"></p>
             </div>
 
             <div class="chart-container">
@@ -126,7 +125,6 @@
         <p>Simulador de Rentabilidad - © Nexus Digital 2023</p>
     </footer>
 
-    <!-- Incluimos Chart.js para el gráfico -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
