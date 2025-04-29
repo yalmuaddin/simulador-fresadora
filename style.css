@@ -134,6 +134,14 @@ header p {
     color: var(--negative-color);
 }
 
+.result-box-cuota {
+    background-color: #f0f8ff;
+    border: 2px solid #0A6C48;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+}
+
 .cost-details {
     margin: 25px 0;
 }
@@ -246,12 +254,4 @@ footer {
     header h1 {
         font-size: 24px;
     }
-}
-
-.result-box-cuota {
-    background-color: #f0f8ff;  /* Fondo azul claro */
-    border: 2px solid #0A6C48; /* Borde verde corporativo */
-    border-radius: 8px;
-    padding: 15px;
-    margin: 15px 0;
 }
