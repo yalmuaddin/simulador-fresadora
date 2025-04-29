@@ -3,7 +3,9 @@ const PIEZAS_POR_DISCO = 25;
 const COSTE_HERRAMIENTA_INDIVIDUAL = 60;
 const HERRAMIENTAS_NECESARIAS = 6;
 const HORAS_VIDA_HERRAMIENTA = 80;
-const TIEMPO_POR_PIEZA = 20 / 60;
+const TIEMPO_POR_PIEZA = 20 / 60; // en horas
+const POTENCIA_FRESADORA = 0.170; // 170W en kW
+const COSTE_KWH = 0.30; // €/kWh estimado para España
 
 function calcularCosteHerramientas(piezasMensuales) {
     const horasFresado = piezasMensuales * TIEMPO_POR_PIEZA;
@@ -18,7 +20,7 @@ function calcularCostesInternos(piezasMensuales) {
     const costeMateriales = discosNecesarios * COSTE_DISCO;
     const costeHerramientas = calcularCosteHerramientas(piezasMensuales);
     const horasFresado = piezasMensuales * TIEMPO_POR_PIEZA;
-    const costeLuz = horasFresado * 0.15;
+    const costeLuz = POTENCIA_FRESADORA * COSTE_KWH * horasFresado;
     const costeMantenimiento = 800 / 12;
 
     return {
@@ -38,10 +40,21 @@ document.getElementById("calcular-btn").addEventListener("click", function () {
     const piezasMes = parseInt(document.getElementById("piezas-mes").value);
 
     const costes = calcularCostesInternos(piezasMes);
-    const cuotaMensual = inversion / plazo;
+    
+    // Nuevo cálculo de cuota con multiplicadores
+    const multiplicadoresCuota = {
+        24: 0.0446,
+        36: 0.0318,
+        48: 0.0246,
+        60: 0.0204,
+        72: 0.0177,
+        84: 0.0124
+    };
+    const cuotaMensual = inversion * multiplicadoresCuota[plazo];
 
     const ahorro = gastoExterno - costes.costeTotalInterno - cuotaMensual;
 
+    // Resto del código permanece igual...
     document.getElementById("cuota-mensual").textContent = cuotaMensual.toFixed(2) + " €/mes";
     document.getElementById("ahorro-mensual").textContent =
         (ahorro >= 0 ? "+" : "") + ahorro.toFixed(2) + " €/mes";
@@ -69,25 +82,4 @@ document.getElementById("calcular-btn").addEventListener("click", function () {
     generarGrafico(gastoExterno, costes.costeTotalInterno + cuotaMensual);
 });
 
-function generarGrafico(externo, interno) {
-    const ctx = document.getElementById("comparacion-chart").getContext("2d");
-    if (window.comparacionChart) {
-        window.comparacionChart.destroy();
-    }
-    window.comparacionChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Externalización', 'Producción Interna'],
-            datasets: [{
-                label: 'Coste mensual (€)',
-                data: [externo, interno],
-                backgroundColor: ['#FF5252', '#0A6C48']
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: { legend: { display: false } },
-            scales: { y: { beginAtZero: true } }
-        }
-    });
-}
+// Resto del archivo permanece igual...
