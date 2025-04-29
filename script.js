@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Constantes para cálculos
     const COSTE_DISCO = 100; // € por disco
     const PIEZAS_POR_DISCO = 25;
-    const COSTE_FRESA = 100; // € por juego de 6 fresas
-    const HORAS_POR_FRESA = 100;
-    const TIEMPO_POR_PIEZA = 40 / 60; // horas
+    const COSTE_FRESA = 360; // € por juego de 6 fresas
+    const HORAS_POR_FRESA = 80;
+    const TIEMPO_POR_PIEZA = 0.4; // horas
     const COSTE_MANTENIMIENTO_ANUAL = 800;
     const COSTE_LUZ_POR_HORA = 0.15;
     const ERROR_FABRICACION = 0.05;
