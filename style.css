@@ -163,6 +163,8 @@ header p {
     padding: 10px;
     background-color: #f5f5f5;
     border-radius: 4px;
+    align-items: center;
+    position: relative;
 }
 
 .cost-label {
@@ -171,6 +173,37 @@ header p {
 
 .cost-value {
     font-weight: 700;
+}
+
+.tooltip {
+    cursor: help;
+    margin-left: 5px;
+    color: var(--primary-color);
+    font-size: 14px;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }
 
 .summary {
