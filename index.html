@@ -24,13 +24,13 @@
             <div class="form-group">
                 <label for="financiacion">Plazo de financiación:</label>
                 <select id="financiacion">
-                    <option value="0.0446">24 meses </option>
+					<option value="0.0446">24 meses </option>
 					<option value="0.0318">36 meses </option>
 					<option value="0.0246">48 meses </option>
 					<option value="0.0204">60 meses </option>
 					<option value="0.0177">72 meses </option>
 					<option value="0.0124">84 meses </option>
-                </select>
+				</select>
             </div>
         </div>
 
@@ -58,7 +58,13 @@
             <div class="result-box">
                 <h3>Ahorro Mensual Estimado:</h3>
                 <div id="ahorro-mensual" class="result-value positive">+0 €/mes</div>
-            </div>
+            
+			</div>
+			<div class="result-box-cuota"> <!-- Usa la clase personalizada -->
+				<h3>Cuota mensual de financiación:</h3>
+				<div id="cuota-mensual" class="result-value">0 €/mes</div>
+			</div>
+			
 
             <div class="cost-details">
                 <h3>Detalle de Costes Internos Mensuales:</h3>
