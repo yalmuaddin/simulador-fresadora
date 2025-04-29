@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Rentabilidad Fresadora Dental</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Simulador de Rentabilidad de Fresadora Dental</h1>
+            <p>Calcule la viabilidad de adquirir su propia fresadora comparando costes de externalización vs producción interna</p>
+        </header>
+
+        <div class="form-section">
+            <h2>1. Datos de Inversión</h2>
+            <div class="form-group">
+                <label for="inversion">Inversión total del pack (PVP en €):</label>
+                <input type="number" id="inversion" min="0" step="1000" value="50000">
+            </div>
+            
+            <div class="form-group">
+                <label for="financiacion">Plazo de financiación:</label>
+                <select id="financiacion">
+                    <option value="1.05">12 meses (coeficiente 1.05)</option>
+                    <option value="1.10" selected>24 meses (coeficiente 1.10)</option>
+                    <option value="1.15">36 meses (coeficiente 1.15)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>2. Costes Actuales de Externalización</h2>
+            <div class="form-group">
+                <label for="gasto-externo">Gasto mensual actual en servicios externos de fresado (€):</label>
+                <input type="number" id="gasto-externo" min="0" step="100" value="3000">
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2>3. Volumen de Producción</h2>
+            <div class="form-group">
+                <label for="piezas-mes">Número estimado de piezas fresadas por mes:</label>
+                <input type="number" id="piezas-mes" min="1" step="1" value="100">
+            </div>
+        </div>
+
+        <button id="calcular-btn" class="calculate-btn">Calcular Rentabilidad</button>
+
+        <div id="resultados" class="results-section hidden">
+            <h2>4. Resultados de Rentabilidad</h2>
+            
+            <div class="result-box">
+                <h3>Ahorro Mensual Estimado:</h3>
+                <div id="ahorro-mensual" class="result-value positive">+0 €/mes</div>
+            </div>
+
+            <div class="cost-details">
+                <h3>Detalle de Costes Internos Mensuales:</h3>
+                <div class="cost-grid">
+                    <div class="cost-item">
+                        <span class="cost-label">Materiales (discos):</span>
+                        <span id="coste-materiales" class="cost-value">0 €</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label">Herramientas (fresas):</span>
+                        <span id="coste-fresas" class="cost-value">0 €</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label">Consumo de luz:</span>
+                        <span id="coste-luz" class="cost-value">0 €</span>
+                    </div>
+                    <div class="cost-item">
+                        <span class="cost-label">Mantenimiento:</span>
+                        <span id="coste-mantenimiento" class="cost-value">0 €</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary">
+                <div class="summary-item">
+                    <span>Coste total interno mensual:</span>
+                    <span id="coste-total" class="highlight">0 €</span>
+                </div>
+                <div class="summary-item">
+                    <span>Coste por pieza:</span>
+                    <span id="coste-pieza" class="highlight">0 €</span>
+                </div>
+                <div class="summary-item">
+                    <span>Piezas perdidas por errores (5%):</span>
+                    <span id="piezas-error" class="highlight">0 piezas</span>
+                </div>
+            </div>
+
+            <div id="roi-section" class="roi-section">
+                <h3>Retorno de la Inversión (ROI):</h3>
+                <p id="roi-text">Con un ahorro mensual de X €, recuperará su inversión en aproximadamente Y meses (Z años).</p>
+            </div>
+
+            <div class="chart-container">
+                <canvas id="comparacion-chart"></canvas>
+            </div>
+
+            <div class="contact-section">
+                <div class="success-message">
+                    <p><strong>Para un asesoramiento personalizado, contacte con nosotros y le ayudaremos en todo.</strong></p>
+                    <p>Visite nuestra página web: <a href="https://www.nexusdigital.es/" target="_blank">https://www.nexusdigital.es/</a></p>
+                    <p>Instagram: @nexusdigital_es</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Simulador de Rentabilidad - © Nexus Digital 2023</p>
+    </footer>
+
+    <!-- Incluimos Chart.js para el gráfico -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
